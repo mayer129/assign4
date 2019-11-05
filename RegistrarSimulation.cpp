@@ -19,7 +19,7 @@ RegistrarSimulation::RegistrarSimulation(string file)
     getline(textFile, line); //takes the numWindows
     numWindows = stoi(line);
 
-    cout << "Num Windows: " << numWindows << endl; //TESTING
+    //cout << "Num Windows: " << numWindows << endl; //TESTING
 
     tobeQueue = new GenQueue<Student>;
     vector<Window> windows;
@@ -46,16 +46,16 @@ RegistrarSimulation::RegistrarSimulation(string file)
        }
     }
 
-    for (int i = 0; i < waitTime.size(); ++i) //TESTING
-      cout << "Arrival Time: " << waitTime[i].wait << endl;
+    //for (int i = 0; i < waitTime.size(); ++i) //TESTING
+      //cout << "Arrival Time: " << waitTime[i].wait << endl;
 
     int currIndex = 0, currTime = 0; //keeps index of students in waitTime vector, and sets the currTime to first in queue
 
     while (!tobeQueue->isEmpty() && isIdle(windows) != -1 || !tobeQueue->isEmpty()) //if students in queue or window, continue
     {
-      cout << "Time: " << currTime << endl; //TESTING
-      for (int i = 0; i < windows.size(); ++i) //TESTING
-        cout << "Window Times: " << windows[i].windowTime << endl;
+      //cout << "Time: " << currTime << endl; //TESTING
+      //for (int i = 0; i < windows.size(); ++i) //TESTING
+        //cout << "Window Times: " << windows[i].windowTime << endl;
 
       int idleIndex = isIdle(windows); //gets index of open window/if window is open
       if (!tobeQueue->isEmpty() && idleIndex != -1 && currTime >= waitTime[currIndex].wait) //if window available, calculate wait time, increment queue index, remove from queue and add to window
@@ -76,8 +76,8 @@ RegistrarSimulation::RegistrarSimulation(string file)
       }
     }
 
-    for (int i = 0; i < waitTime.size(); ++i) //TESTING
-      cout << "Wait Times: " << waitTime[i].wait << endl;
+    //for (int i = 0; i < waitTime.size(); ++i) //TESTING
+      //cout << "Wait Times: " << waitTime[i].wait << endl;
 
     double mean = 0, meanIdle = 0; //default values
     int median = 0, longest = 0, waitTen = 0, longestIdle = 0, idleFive = 0; //default values
@@ -119,8 +119,8 @@ RegistrarSimulation::RegistrarSimulation(string file)
     cout << "Longest Window Idle Time: " << longestIdle << endl;
     cout << "Number of Windows Idle Over 5 Minutes: " << idleFive<< endl;
 
-    for (int i = 0; i < windows.size(); ++i) //TESTING
-      cout << "Idle Times: " << windows[i].idleTime << endl;
+    //for (int i = 0; i < windows.size(); ++i) //TESTING
+      //cout << "Idle Times: " << windows[i].idleTime << endl;
 
   }
   else //If file can't be opened
